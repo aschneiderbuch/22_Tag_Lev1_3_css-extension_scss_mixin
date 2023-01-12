@@ -44,7 +44,7 @@ animation-timing-function: ease-in-out;
 
 .ball2 {
     @include kugelnPrameterBackgroundColor(blue);
-@include bewegung___ZweiParameter___PauseDauer(1s, 0.01s);
+@include bewegung___ZweiParameter___PauseDauer(1s, 1s);
 }
 
 .ball3 {
