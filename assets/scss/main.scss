@@ -24,34 +24,44 @@ html {
     background-color: $background-color;
 }
 
-@mixin bewegung {
+@mixin bewegung___ZweiParameter___PauseDauer ($Pause, $Dauer) {
     animation-name: bewegung;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation-delay: $Pause;            // Pause am Anfang
+    animation-duration: $Dauer;         // dauer der a
+animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite; // unendliche wiederholung
 }
 
 .ball1 {
     @include kugelnPrameterBackgroundColor(red);
 
-    &:hover {
- @include bewegung()
-    }
+
+ @include bewegung___ZweiParameter___PauseDauer(0.5s, 2s)        // * ohne hover legt Bewegung sofort beim Seitnladen los
+
 
 
 }
 
 .ball2 {
     @include kugelnPrameterBackgroundColor(blue);
-@include bewegung();
+@include bewegung___ZweiParameter___PauseDauer(1s, 0.01s);
 }
 
 .ball3 {
     @include kugelnPrameterBackgroundColor(yellow);
+    @include bewegung___ZweiParameter___PauseDauer(2s, 4s);
 }
 
 @keyframes bewegung {
     0% {
         transform: translateX(0px);
+    }
+
+    25%{
+        transform: translateX(70vw);
+    }
+    30%{
+        transform: translateY(2px);
     }
 
     50% {
