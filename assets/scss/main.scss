@@ -3,6 +3,60 @@
 
  */
 
-*{
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    max-width: 1440px;
+    scroll-behavior: smooth;
+}
+
+
+@mixin kugelnPrameterBackgroundColor ($background-color) {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    background-color: $background-color;
+}
+
+@mixin bewegung {
+    animation-name: bewegung;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.ball1 {
+    @include kugelnPrameterBackgroundColor(red);
+
+    &:hover {
+ @include bewegung()
+    }
+
+
+}
+
+.ball2 {
+    @include kugelnPrameterBackgroundColor(blue);
+@include bewegung();
+}
+
+.ball3 {
+    @include kugelnPrameterBackgroundColor(yellow);
+}
+
+@keyframes bewegung {
+    0% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateX(50vw);
+    }
+
+    100% {transform: translateX(400px);}
 }
